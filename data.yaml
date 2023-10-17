@@ -1,0 +1,31 @@
+# Estructura base de un proyecto
+products:
+  name: string
+  description: string
+  price: number
+  in_stock: boolean
+  category: string
+
+users:
+  username: string
+  email: string
+  password: string
+
+orders:
+  date: date
+  user:
+    username: string
+    email: string
+  items:
+    product:
+      name: string
+      price: number
+      quantity: number
+
+modules:
+  Products:
+    name: Products
+  Users:
+    name: Users
+  Orders:
+    name: Orders
