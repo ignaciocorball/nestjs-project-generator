@@ -59,6 +59,53 @@ orders:
 
 Este archivo YAML define módulos, tablas y campos, y el generador creará la estructura de tu proyecto en base a esto.
 
+Lo que generara una estructuras de archivos como esta
+```
+src
+├───products
+│   └───products.service.ts
+    └───products.controller.ts
+    └───products.dto.ts
+    └───products.module.ts
+```
+Esto generara un servicio basico como el siguiente: 
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { HttpClient } from '@nestjs/common';
+import { environment } from '../../environment/environment';
+import { Products } from './products.dto';
+
+@Injectable()
+export class ProductsService {
+
+  private baseUrl = environment.apiUrl;
+
+  constructor(private readonly httpClient: HttpClient) {}
+
+  async create(products: Products): Promise<Products> {
+    return this.httpClient.post<Products>(`${this.baseUrl}/products`, products).toPromise();
+  }
+
+  async get(id: number): Promise<Products> {
+    return this.httpClient.get<Products>(`${this.baseUrl}/products/${id}`).toPromise();
+  }
+
+  async update(id: number, products: Products): Promise<Products> {
+    return this.httpClient.put<Products>(`${this.baseUrl}/products/${id}`, products).toPromise();
+  }
+
+  async delete(id: number): Promise<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/products/${id}`).toPromise();
+  }
+
+  async patch(id: number, updates: Partial<Products>): Promise<Products> {
+    return this.httpClient.patch<Products>(`${this.baseUrl}/products/${id}`, updates).toPromise();
+  }
+
+}
+```
+
 ## Contacto
 
 Si tienes preguntas o comentarios, no dudes en ponerte en contacto con nosotros.
