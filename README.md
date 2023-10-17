@@ -22,6 +22,7 @@ Este es un generador de proyectos NestJS que utiliza un archivo YAML para defini
 
 Aquí hay un ejemplo de cómo debería verse un archivo YAML que describe la estructura de datos:
 
+```yaml
 modules:
   Orders:
     name: Orders
@@ -54,6 +55,7 @@ orders:
       name: string
       price: number
       quantity: number
+```
 
 Este archivo YAML define módulos, tablas y campos, y el generador creará la estructura de tu proyecto en base a esto.
 
