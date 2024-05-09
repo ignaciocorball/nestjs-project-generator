@@ -64,11 +64,11 @@ Lo que generara una estructuras de archivos como esta
 src
 ├───products
 │   └───products.service.ts
-    └───products.controller.ts
-    └───products.dto.ts
-    └───products.module.ts
+│   └───products.controller.ts
+│   └───products.dto.ts
+│   └───products.module.ts
 ```
-Esto generara un servicio basico como el siguiente: 
+Esto generara un servicio con su objeto tipado como el siguiente: 
 
 ```typescript
 import { Injectable } from '@nestjs/common';
@@ -106,8 +106,4 @@ export class ProductsService {
 }
 ```
 
-## Contacto
-
-Si tienes preguntas o comentarios, no dudes en ponerte en contacto con nosotros.
-
-Disfruta de tu generador de proyectos NestJS!
+Tus pulls requests son bien recibidos!
